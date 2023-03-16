@@ -1,0 +1,170 @@
+4.循环结构
+   while 循环
+基本格式:
+ while(循环条件) {
+ 循环语句;
+}
+循环条件为true,则执行循环语句;否则结束循环
+代码实例1:打印1-10的数字
+       int num = 1;
+       while(num <= 10) {
+     System.out.println(num);
+      num++;
+    }
+代码示例2:计算1-100的和
+       int n = 1;
+      int result = 0;
+   while(n<=100) {
+   result+=n;
+    n++;
+   }
+System.out.println(num);
+代码实例3:计算5的阶乘
+   int n = 1;
+   int result = 1;
+    while(n<=5) {
+    result*=n;
+     n++;
+  }
+System.out.println(num);
+
+代码实例4:计算1!+2!+3!+4!+5!
+  int num = 1;
+   int sum = 0;
+//外层循环负责求阶乘的和
+    while(num<5) {
+   int factorResult = 1;
+    int tmp = 1;
+ //里层循环负责完成求阶乘的细节
+    while (tmp<=num) {
+   fctorResult*=tmp;
+  tmp++;
+ }
+  sum +=factorResult;
+  num++;
+}
+System.out.println("sum="+sum);
+
+4.2 break
+break的功能是让循环提前结束
+代码实例:找到100-200中第一个3的倍数
+  int num = 10;
+   while(num<=200) {
+   if(num %3 ==0) {
+    System.out.println("找到了3的倍数,为:"+num);
+          break;
+   }
+  num++;
+}
+执行break就会让循环结束
+
+4.3continue
+ continue的功能是跳过本次循环,立即进入下次循环
+代码示例:找到100-200中所有3的倍数
+       int num = 100;
+    while(num<=200) {
+   if(num%3!=0) {
+  num++;
+   continue;
+ }
+System.out.println("找到3的倍数,为:"+num);
+  num++;
+}
+执行continue语句的时候,就会立刻进入下次循环(判定循环条件),从而不会执行到下方的打印语句
+4.4 for 循环
+基本语法
+for(表达式1:布尔表达式2;表达式3){
+   表达式4;
+  }
+.表达式1:用于初始化循环变量初始值设置,在循环最开始时执行,且只执行一次
+.表达式2:循环条件,满足则循环继续,否则循环结束
+.表达式3:循环变量更新方式
+[执行过程]
+1234->234->234->234->....->2为false,循环结束
+代码示例
+1.打印1-10的数字
+   for(int i=1;i<=10;i++) {
+   System.out.println(i);
+}
+2.计算1-100的和
+     int sum = 0;
+  for(int i =1;i<100;i++) {
+  sum+=i;
+} 
+System.out.println("sum="+sum);
+
+//执行结果
+ 5050
+3.计算5的阶乘
+  int result = 1;
+  for(int i =1;i<=5;i++) {
+   result*=i;
+ }
+System.out.println("result="+result);
+4.计算1!+2!+3!+4!+5!
+    int sum = 0;
+   for(int i=1;i<=5;i++){
+     int tmp = 1;
+   for(int j=1;j<=i;j++) {
+     tmp*=j;
+  }
+  sum+=tmp;
+ }
+System.out.println("sum="+sum);
+
+4.5 do while循环(选学)
+基本语法
+do{
+   循环语句;
+}while(循环条件);
+先执行循环语句,在判定循环条件,循环条件成立则继续执行,否则循环结束
+例如:打印1-10
+  int num = 1;
+  do{
+  System.out.println(num);
+   num++;
+ } while(num<=10);
+注意事项:
+1.do while 循环最后的分号不要忘记
+2.一般do while很少用到,更推荐使用for和while
+
+4.2 从键盘输入
+使用Scanner读取字符串/整数/浮点数
+ import java.util.Scanner;//需要导入util包
+  
+   Scanner sc = new Scanner(System.in);
+  System.out.println("请输入你的名字: ");
+   String name = sc.nextLine();
+ System.out.println("请输入你的年龄: ");
+  int age = sc.nextLine();
+  System.out.println("请输入你的工资: ");
+   float salary = sc.nextLine();
+  System.out.println("你的信息如下: ");
+System.out.println("姓名: "+name+"\n"+"年龄: "+age+"\n"+"工资: "+salary);
+ sc.close();//注意,要记得调用关闭方法
+使用Scanner循环读取N个数字,并求取其平均值
+  Scanner sc = new Scanner(System.in);
+   int sum = 0;
+    int num = 0;
+while(sc.hasNextInt()) {
+   int tmp = sc.nextInt();
+     sum+=tmp;
+      num++;
+    }
+System.out.println("sum="+sum);
+System.out.println("avg="+sum/num);
+sc.close();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
